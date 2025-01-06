@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap');
+@font-face {
+    font-family: milk;
+    src: url('../font/berry.woff2');
+}
+
+@font-face {
+    font-family: berry;
+    src: url('/now.ttf');
+}
+
+:root {
+    --theme: #051540;
+    --primary: #4260ac;
+    --secondary: #fa5756;
+    --base: #fff;
+    --light: #c9c9c9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: var(--base);
+    &:focus {
+        outline: none;
+    }
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    max-height: 100%;
+    overflow-x: auto;
+    background-color: #070505;
+    scroll-behavior: smooth;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    background-color: #0A0A22;
+    /* Deep blue background for the navigation bar */
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 9999;
+    /* Ensure the nav is on top of other elements */
+}
+
+.dropdown {
+    position: absolute;
+    display: none;
+    right: 10px;
+    top: 10px;
+}
+
+.menu-icon {
+    display: none;
+    width: 30px;
+    /* Adjust the size as needed */
+    cursor: pointer;
+}
+
+/* Show menu icon only on mobile */
+
+@media only screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    .dropdown {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .menu {
+        display: none;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        background-color: #0A0A22;
+        /* Deep blue background for the dropdown menu */
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        /* Nice shadow effect */
+        border-radius: 5px;
+        /* Rounded corners */
+        z-index: 1000;
+        /* Ensure the dropdown is above other elements */
+    }
+    /* Display menu when checkbox is checked */
+    .menu-icon:checked+.menu {
+        display: block;
+    }
+    .menu li {
+        border-bottom: 1px solid #333;
+        /* Light border between items */
+    }
+    .menu li:last-child {
+        border-bottom: none;
+    }
+    .menu li a {
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+        color: white;
+        /* White text color */
+        background-color: #0A0A22;
+        /* Deep blue background */
+        transition: background-color 0.3s ease;
+    }
+    .menu li a:hover {
+        background-color: #1b263b;
+        /* Slightly lighter blue on hover */
+    }
+}
+
+.above-chart {
+    width: 100%;
+    text-align: center;
+    /* Optional: center the text/content in this div */
+    margin-bottom: 20px;
+    /* Space between this div and the chart container */
+}
+
+.chart-container {
+    width: 80%;
+    /* Adjust as needed */
+    max-width: 800px;
+    /* Optional: for max width */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Optional: for a subtle shadow */
+    background-color: black;
+    /* Optional: for a white background */
+    border-radius: 10px;
+    /* Optional: for rounded corners */
+    margin: 0 auto;
+    /* Center horizontally */
+    margin-bottom: 1rem;
+}
+
+.chart-iframe {
+    width: 100%;
+    height: 500px;
+    /* Adjust as needed */
+    border: none;
+    border-radius: 10px;
+    /* Optional: for rounded corners on the iframe */
+}
+
+h1,
+h2 {
+    font-family: 'berry', sans-serif;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+.bg-theme {
+    background-color: var(--theme) !important;
+}
+
+.text-primary {
+    color: #f0ecec !important;
+}
+
+.text-secondary {
+    color: #f3f0f0 !important;
+}
+
+.text-base {
+    color: var(--text) !important;
+}
+
+.text-light {
+    color: var(--text) !important;
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+.border-secondary {
+    border-color: var(--secondary) !important;
+}
+
+.text-linear-primary {
+    background: linear-gradient(to right, white 15%, white 50%);
+    background: -webkit-linear-gradient(to right, #083a96 15%, #9dafe1 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-linear-secondary {
+    background: linear-gradient(to right, #909190 15%, #070d7a 50%);
+    background: -webkit-linear-gradient(to right, #ae4651 15%, #10086b 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container {
+    max-width: 1350px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 0 25px !important;
+    margin: 0 auto;
+}
+
+.button-base {
+    border: 1px solid #000000;
+    height: 48px;
+    padding: 0 15px;
+    color: #000000;
+    border-radius: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.hero-text svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 46%;
+    top: 65%;
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    animation: 3s pulsate infinite alternate ease-in-out;
+}
+
+.hero-text svg text.animate-stroke {
+    animation: stroke 4s;
+    opacity: 0.2;
+}
+
+.hero-text svg text {
+    font-family: 'berry', sans-serif;
+    text-transform: uppercase;
+    animation: stroke 4s;
+    stroke-width: 1.2;
+    stroke: #041dff;
+    fill: transparent;
+    font-size: 230px;
+    display: inline-block;
+    letter-spacing: 5px;
+    opacity: 0;
+}
+
+.section-hero::before,
+.hero-image::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+}
+
+.section-hero:before {
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+    top: 0;
+    right: 0;
+    width: 322px;
+    height: 308px;
+    margin-right: -5%;
+    margin-top: -5%;
+    z-index: 1;
+}
+
+.hero-image:before {
+    background: linear-gradient(260deg, #5c4ac3 0%, rgba(115, 67, 210, 0) 100%);
+    bottom: 0;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    opacity: 0.3;
+    margin-left: -50%;
+    margin-bottom: -30%;
+    z-index: -1;
+}
+
+.section-case::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient( 260deg, var(--secondary) 0%, rgba(115, 67, 210, 0) 100%);
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+    width: 100%;
+    height: 120%;
+    opacity: 0.2;
+    right: 0;
+    bottom: 0;
+    margin-right: -40%;
+    margin-bottom: -20%;
+}
+
+.section-resume::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient( 260deg, var(--primary) 0%, rgba(115, 67, 210, 0) 100%);
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+    width: 90%;
+    height: 90%;
+    opacity: 0.15;
+    left: 0;
+    bottom: 0;
+    margin-left: -50%;
+    margin-bottom: -20%;
+}
+
+@media (max-width: 600px) {
+    .section-case::before {
+        width: 400px;
+        height: 400px;
+    }
+    .section-resume::before {
+        width: 400px;
+        height: 400px;
+    }
+    .hero-text svg {
+        top: 35%;
+        left: 50%;
+    }
+    .hero-text svg text.animate-stroke {
+        opacity: 0.8;
+    }
+    .hero-text svg text {
+        font-size: 350px;
+        stroke-width: 2;
+    }
+    @keyframes pulsate {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.02);
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+}
+
+@keyframes stroke {
+    0% {
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 1;
+    }
+    100% {
+        stroke-dashoffset: 100%;
+        stroke-dasharray: 100% 0;
+        stroke-width: 1;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+#dexscreener-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 125%;
+}
+
+@media (min-width: 1400px) {
+    #dexscreener-embed {
+        padding-bottom: 65%;
+    }
+}
+
+#dexscreener-embed iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 0;
+}
